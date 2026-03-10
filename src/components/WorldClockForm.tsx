@@ -24,11 +24,21 @@ export default function WorldClockForm({ onAdd }: WorldClockFormProps) {
       <form className="watch-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Название</label>
-          <input type="text" onChange={onChangeCityName} required></input>
+          <input 
+            type="text"
+            value={cityName} 
+            onChange={onChangeCityName} 
+            required
+          />
         </div>
         <div className="form-group">
           <label>Временная зона</label>
-          <input type="number" onChange={onChangeTimeZone} required></input>
+          <input 
+            type="number"
+            value={timeZone}
+            onChange={onChangeTimeZone} 
+            required 
+            />
         </div>
         <button type="submit" className="btn">Добавить</button>
       </form>
