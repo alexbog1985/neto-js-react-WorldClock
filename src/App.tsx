@@ -5,10 +5,11 @@ import WorldClock from './components/WorldClock'
 function App() {
 
   const onRemove = () => {}
+  const onAdd = (cityName, timeZone) => {console.log(cityName, timeZone)}
 
   return (
     <>
-      <WorldClockForm />
+      <WorldClockForm onAdd={onAdd}/>
       <WorldClock timeZone={3} cityName="Moscow" onRemove={onRemove} />
     </>
   )
