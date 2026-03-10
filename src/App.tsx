@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-       <WorldClockForm />
-      <WorldClock timeZone={0} cityName="Moscow" onRemove={onRemove} />
+      <WorldClockForm />
+      <WorldClock timeZone={3} cityName="Moscow" onRemove={onRemove} />
     </>
   )
 }

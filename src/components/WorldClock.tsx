@@ -6,6 +6,16 @@ interface WorldClockProps {
   onRemove: () => void;
 }
 
+function formatTime(date: Date, timezoneOffset: number): string {
+  const utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+  const cityTime = new Date(utc + (3600000 * timezoneOffset));
+  return cityTime.toLocaleTimeString('ru-RU', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+}
+
 export default function WorldClock( { timeZone, cityName, onRemove}: WorldClockProps ) {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -23,7 +33,7 @@ export default function WorldClock( { timeZone, cityName, onRemove}: WorldClockP
     <div className="world-clock">
       <h3>{cityName}</h3>
       <div className="clock-time">
-        <p>{timeZone} {currentTime.getTime()}</p>
+        <p>{formatTime(currentTime, timeZone)}</p>
         <button onClick={onRemove}>remove</button>
       </div>
     </div>
