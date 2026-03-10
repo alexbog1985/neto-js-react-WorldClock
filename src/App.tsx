@@ -1,10 +1,15 @@
 import './App.css'
+import WorldClockForm from './components/WorldClockForm'
+import WorldClock from './components/WorldClock'
 
 function App() {
 
+  const onRemove = () => {}
+
   return (
     <>
-       Hello World
+       <WorldClockForm />
+      <WorldClock timeZone={0} cityName="Moscow" onRemove={onRemove} />
     </>
   )
 }
