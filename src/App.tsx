@@ -1,16 +1,34 @@
-import './App.css'
-import WorldClockForm from './components/WorldClockForm'
-import WorldClock from './components/WorldClock'
+import './App.css';
+import WorldClockForm from './components/WorldClockForm';
+import { useState } from 'react';
+import WorldClockList from './components/WorldClockList';
+
+interface Clock {
+  id: string;
+  cityName: string;
+  timeZone: number;
+}
 
 function App() {
+  const [clocks, setClocks] = useState<Clock[]>([]);
 
-  const onRemove = () => {}
-  const onAdd = (cityName, timeZone) => {console.log(cityName, timeZone)}
+  const addClock = (cityName: string, timeZone: number) => {
+    const newClock: Clock = {
+      id: Date.now().toString(),
+      cityName,
+      timeZone
+    };
+    setClocks(prev => [...prev, newClock]);
+  }
+
+  const removeClock = (id:string) => {
+    setClocks(prev => prev.filter(clock => clock.id !== id));
+  }
 
   return (
     <>
-      <WorldClockForm onAdd={onAdd}/>
-      <WorldClock timeZone={3} cityName="Moscow" onRemove={onRemove} />
+      <WorldClockForm onAdd={addClock}/>
+      <WorldClockList clocks={clocks} onRemove={removeClock} />
     </>
   )
 }
