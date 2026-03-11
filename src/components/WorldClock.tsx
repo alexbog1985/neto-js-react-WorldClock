@@ -31,10 +31,12 @@ export default function WorldClock( { timeZone, cityName, onRemove}: WorldClockP
 
   return (
     <div className="world-clock">
-      <h3>{cityName}</h3>
+      <div className="clock-title">
+        <h3>{cityName}</h3>
+        <button className="remove-btn" onClick={onRemove}>×</button>
+      </div>
       <div className="clock-time">
         <p>{formatTime(currentTime, timeZone)}</p>
-        <button onClick={onRemove}>remove</button>
       </div>
     </div>
   )

@@ -16,3 +16,31 @@
   border: 1px solid black;
   border-radius: 4px;
 }
+
+.clocks-list {
+  display: flex;
+  gap: 20px;
+}
+
+.clock-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remove-btn {
+  background-color: white;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  color: rgb(133, 133, 133);
+}
+
+.clock-time p {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5em;
+  margin: 0px 0;
+}
